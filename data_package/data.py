@@ -18,7 +18,7 @@ def get_fremont_data(filename='Fremont.csv',url=URL, force_download= False):
         urlretrieve(URL,filename)
     data = pd.read_csv(filename, index_col = "Date")
     try:
-    	data.index = pd.to_datetime(data.index, format='%m/%d/%Y %H:%M:%S %p')
+    	data.index = pd.to_datetime(data.index, format='%m/%d/%Y %I:%M:%S %p')
     except TypeError:
     	data.index = pd.to_datetime(data.index)
     data.columns = ["Total","East","West"]
